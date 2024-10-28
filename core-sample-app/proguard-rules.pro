@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
+-keep class com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.** { *; }
 # GoogleApiClient
 # Needed to keep generic types and @Key annotations accessed via reflection
 -keepattributes Signature,RuntimeVisibleAnnotations,AnnotationDefault
