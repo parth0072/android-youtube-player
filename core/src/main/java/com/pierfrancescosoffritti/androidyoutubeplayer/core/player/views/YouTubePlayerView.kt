@@ -5,6 +5,9 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.*
@@ -239,6 +242,19 @@ class YouTubePlayerView(
       targetHeight = ViewGroup.LayoutParams.WRAP_CONTENT
     )
   }
+
+fun overrideUrlLoading(redirectAction: () -> Unit) {
+    legacyTubePlayerView.webViewYouTubePlayer.webViewClient = object : WebViewClient() {
+      override fun shouldOverrideUrlLoading(
+        view: WebView?,
+        request: WebResourceRequest?
+      ): Boolean {
+        redirectAction()
+        return true
+      }
+    }
+  }
+
 
   @Suppress("SameParameterValue")
   private fun setLayoutParams(targetWidth: Int, targetHeight: Int) {
