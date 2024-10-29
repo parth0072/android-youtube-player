@@ -1,5 +1,4 @@
 apply from: './dependencies.gradle'
-apply plugin: 'maven-publish'
 
 buildscript {
   apply from: './dependencies.gradle'
