@@ -10,6 +10,7 @@ android {
     targetSdkVersion versions.compileSdk
     versionCode versions.publishVersionCode_chromecast
     versionName versions.publishVersion_chromecast
+    multiDexEnabled true
   }
 
   buildTypes {
@@ -38,8 +39,8 @@ android {
 
 dependencies {
   testImplementation "junit:junit:$versions.junit"
-  androidTestImplementation "androidx.test:runner:$versions.runner"
-  androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
+  implementation "androidx.test:runner:$versions.runner"
+  implementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
 
   implementation project(':core')
   implementation project(':chromecast-sender')
@@ -51,4 +52,5 @@ dependencies {
   implementation "androidx.mediarouter:mediarouter:$versions.androidxMediarouter"
 
   implementation "com.github.PierfrancescoSoffritti:library-sample-app-template:$versions.sampleAppTemplate"
+  implementation "androidx.multidex:multidex:2.0.1"
 }
